@@ -153,7 +153,6 @@ services.factory('MetricListService', function ($rootScope, $http, $log, $q, PMA
             var metricArr = [],
                 url,
                 host = $rootScope.properties.host,
-                port = $rootScope.properties.port,
                 context = $rootScope.properties.context;
 
             if (context && context > 0 && simpleMetrics.length > 0) {
@@ -163,7 +162,7 @@ services.factory('MetricListService', function ($rootScope, $http, $log, $q, PMA
                 });
                 /*jslint unparam: false*/
 
-                url = 'http://' + host + ':' + port + '/pmapi/' + context + '/_fetch?names=' + metricArr.join(',');
+                url = 'http://' + host + '/pmapi/' + context + '/_fetch?names=' + metricArr.join(',');
 
                 PMAPIService.getMetrics(context, metricArr)
                     .then(function (metrics) {
@@ -284,6 +283,14 @@ services.factory('DashboardService', function ($rootScope, $http, $interval, $lo
         $rootScope.flags.contextAvailable = true;
         $rootScope.properties.context = data;
         updateInterval();
+        // fetch hostname
+        PMAPIService.getMetrics(data, ["pmcd.hostname"])
+            .then(function (metrics) {
+                angular.forEach(metrics.values[0].instances, function (pair) {
+                    $rootScope.properties.hostname = pair.value;
+                    $log.info("Hostname updated: " + pair.value);
+                });
+            })
     };
 
     updateContextErrorCallback = function () {
@@ -294,13 +301,12 @@ services.factory('DashboardService', function ($rootScope, $http, $interval, $lo
     updateContext = function () {
         $log.info("Context updated.");
 
-        var host = $rootScope.properties.host,
-            port = $rootScope.properties.port;
+        var host = $rootScope.properties.host;
 
         if (host && host !== '') {
             $rootScope.flags.contextUpdating = true;
             $rootScope.flags.contextAvailable = false;
-            PMAPIService.getHostspecContext('localhost', 600)
+            PMAPIService.getHostspecContext($rootScope.properties.pmcd, 600)
                 .then(function (data) {
                     $rootScope.flags.contextUpdating = false;
                     updateContextSuccessCallback(data);
@@ -338,6 +344,7 @@ services.factory('DashboardService', function ($rootScope, $http, $interval, $lo
             $log.info("Host updated.");
 
             $location.search('host', $rootScope.properties.host);
+            $location.search('pmcd', $rootScope.properties.pmcd);
 
             $rootScope.properties.context = -1;
 
@@ -360,8 +367,8 @@ services.factory('DashboardService', function ($rootScope, $http, $interval, $lo
                 if (!$rootScope.properties.host) {
                     $rootScope.properties.host = '';
                 }
-                if (!$rootScope.properties.port) {
-                    $rootScope.properties.port = vectorConfig.port;
+                if (!$rootScope.properties.pmcd) {
+                    $rootScope.properties.pmcd = vectorConfig.pmcd;
                 }
                 if (!$rootScope.properties.context || $rootScope.properties.context < 0) {
                     updateContext();
@@ -388,7 +395,7 @@ services.factory('DashboardService', function ($rootScope, $http, $interval, $lo
 services.factory('FlameGraphService', function ($log, $rootScope, $http, flash) {
     return {
         generate: function () {
-            $http.get("http://" + $rootScope.properties.host + ":" + $rootScope.properties.port + "/pmapi/" + $rootScope.properties.context + "/_fetch?names=generic.systack")
+            $http.get("http://" + $rootScope.properties.host + "/pmapi/" + $rootScope.properties.context + "/_fetch?names=generic.systack")
                 .success(function () {
                     flash.to('alert-sysstack-success').success = 'generic.systack requested!';
                     $log.info("generic.systack requested");
@@ -403,7 +410,7 @@ services.factory('FlameGraphService', function ($log, $rootScope, $http, flash) 
 services.factory('HeatMapService', function ($log, $rootScope, $http, flash) {
     return {
         generate: function () {
-            $http.get("http://" + $rootScope.properties.host + ":" + $rootScope.properties.port + "/pmapi/" + $rootScope.properties.context + "/_fetch?names=generic.heatmap")
+            $http.get("http://" + $rootScope.properties.host + "/pmapi/" + $rootScope.properties.context + "/_fetch?names=generic.heatmap")
                 .success(function () {
                     flash.to('alert-disklatency-success').success = 'generic.heatmap requested!';
                     $log.info("generic.heatmap requested");

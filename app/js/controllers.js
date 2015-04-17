@@ -78,12 +78,24 @@ controllers.controller('DashboardCtrl', function ($scope, $rootScope, $log, $rou
 
     DashboardService.initializeProperties();
 
+    $rootScope.properties.hostname = 'unknown'; // (deferred) value of the pmcd.hostname metric
+    $rootScope.properties.host = window.location.host; // XXX: what of vectorConfig.port ?
+    $rootScope.properties.pmcd = 'local:'; // XXX: an alternative to localhost
+
+    // pmwebd host
     if ($routeParams.host) {
-        $log.info("Host: " + $routeParams.host);
         $rootScope.properties.host = $routeParams.host;
-        DashboardService.updateHost();
+    }
+    // pmcd hostspec
+    if ($routeParams.pmcd) {
+        $rootScope.properties.pmcd = $routeParams.pmcd;
     }
 
+    $log.info("PMWEBD Host: " + $rootScope.properties.host);
+    $log.info("PMCD Hostspec: " + $rootScope.properties.pmcd);
+    
+    DashboardService.updateHost();
+    
     // hack to deal with window/tab out of focus
     document.addEventListener(visibilityChange, function () {
         if (document[hidden]) {

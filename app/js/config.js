@@ -24,6 +24,7 @@ var config = angular.module('vector.config', []);
 
 config.constant('vectorConfig', {
   'port': 44323,
+  'pmcd': 'localhost',
   'interval': 2,
   'window': 2,
   'enableCpuFlameGraph': false,

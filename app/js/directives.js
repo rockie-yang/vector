@@ -292,7 +292,6 @@ directives.directive('cpuFlameGraph', function ($rootScope, $timeout, FlameGraph
         templateUrl: 'partials/cpu-flame-graph.html',
         link: function (scope) {
             scope.host = $rootScope.properties.host;
-            scope.port = $rootScope.properties.port
             scope.context = $rootScope.properties.context;
             scope.ready = false;
             scope.processing = false;
@@ -316,7 +315,6 @@ directives.directive('diskLatencyHeatMap', function ($rootScope, $timeout, HeatM
         templateUrl: 'partials/disk-latency-graph.html',
         link: function (scope) {
             scope.host = $rootScope.properties.host;
-            scope.port = $rootScope.properties.port
             scope.context = $rootScope.properties.context;
             scope.ready = false;
             scope.processing = false;
