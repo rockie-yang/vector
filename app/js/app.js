@@ -29,6 +29,13 @@
         flashProvider.errorClassnames.push('alert-danger');
     }
 
+    angular.module('digest', ['digestHud']).config(function(digestHudProvider) {
+      digestHudProvider.enable();
+      // Optional configuration settings:
+      digestHudProvider.numTopWatches = 20;  // number of items to display in detailed table
+      digestHudProvider.numDigestStats = 25;  // number of most recent digests to use for min/med/max stats
+    });
+
     angular
         .module('app.routes', ['ngRoute']);
 
@@ -64,7 +71,8 @@
             'vector.config',
             'nvd3ChartDirectives',
             'angular-flash.service',
-            'angular-flash.flash-alert-directive'
+            'angular-flash.flash-alert-directive',
+            'digest'
         ])
         .config(flashConfig);
 
