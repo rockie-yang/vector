@@ -49,7 +49,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.all.runnable',
@@ -64,7 +64,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.all.cpu.sys',
@@ -79,7 +79,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.all.cpu.user',
@@ -94,7 +94,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.all.cpu',
@@ -109,7 +109,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.percpu.cpu.sys',
@@ -124,7 +124,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.percpu.cpu.user',
@@ -139,7 +139,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'kernel.percpu.cpu',
@@ -154,7 +154,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'mem.freemem',
@@ -169,7 +169,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Memory'
             }, {
                 name: 'mem.util.used',
@@ -184,7 +184,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Memory'
             }, {
                 name: 'mem.util.cached',
@@ -199,7 +199,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Memory'
             }, {
                 name: 'mem',
@@ -214,7 +214,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Memory'
             }, {
                 name: 'network.interface.out.drops',
@@ -229,7 +229,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.interface.in.drops',
@@ -244,7 +244,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.interface.drops',
@@ -263,7 +263,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.tcpconn.established',
@@ -278,7 +278,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.tcpconn.time_wait',
@@ -289,7 +289,7 @@
                 dataModelOptions: {
                     name: 'network.tcpconn.time_wait'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 size: {
                     width: '25%',
                     height: '250px'
@@ -308,7 +308,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.tcpconn',
@@ -328,7 +328,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.interface.bytes',
@@ -343,7 +343,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'disk.iops',
@@ -362,7 +362,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Disk'
             }, {
                 name: 'disk.bytes',
@@ -381,7 +381,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Disk'
             }, {
                 name: 'disk.dev.avactive',
@@ -396,7 +396,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Disk'
             }, {
                 name: 'kernel.all.pswitch',
@@ -411,7 +411,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'CPU'
             }, {
                 name: 'mem.vmstat.pgfault',
@@ -430,7 +430,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Memory'
             }, {
                 name: 'network.interface.packets',
@@ -449,7 +449,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'network.tcp.retrans',
@@ -472,7 +472,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Network'
             }, {
                 name: 'disk.dev.latency',
@@ -487,7 +487,7 @@
                     width: '25%',
                     height: '250px'
                 },
-                enableVerticalResize: false,
+                enableVerticalResize: true,
                 group: 'Disk'
             }
         ];
@@ -502,7 +502,7 @@
               width: '25%',
               height: '250px'
             },
-            enableVerticalResize: false,
+            enableVerticalResize: true,
             group: 'CPU'
           });
         }
@@ -517,7 +517,7 @@
               width: '25%',
               height: '250px'
             },
-            enableVerticalResize: false,
+            enableVerticalResize: true,
             group: 'Disk'
           });
         }
