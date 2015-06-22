@@ -16,37 +16,38 @@
  *
  */
 
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    function cpuFlameGraph($rootScope, $timeout, FlameGraphService, VectorService) {
+  function cpuFlameGraph($rootScope, $timeout, FlameGraphService,
+    VectorService) {
 
-        function link(scope) {
-            scope.host = $rootScope.properties.host;
-            scope.port = $rootScope.properties.port;
-            scope.context = $rootScope.properties.context;
-            scope.ready = false;
-            scope.processing = false;
-            scope.id = VectorService.getGuid();
-            scope.generateFlameGraph = function(){
-                FlameGraphService.generate();
-                scope.ready = true;
-                scope.processing = true;
-                $timeout(function () {
-                    scope.processing = false;
-                }, 65000);
-            };
-        }
-
-        return {
-            restrict: 'A',
-            templateUrl: 'app/charts/pu-flame-graph.html',
-            link: link
-        };
+    function link(scope) {
+      scope.host = $rootScope.properties.host;
+      scope.port = $rootScope.properties.port;
+      scope.context = $rootScope.properties.context;
+      scope.ready = false;
+      scope.processing = false;
+      scope.id = VectorService.getGuid();
+      scope.generateFlameGraph = function() {
+        FlameGraphService.generate();
+        scope.ready = true;
+        scope.processing = true;
+        $timeout(function() {
+          scope.processing = false;
+        }, 65000);
+      };
     }
 
-    angular
-        .module('app.directives')
-        .directive('cpuFlameGraph', cpuFlameGraph);
+    return {
+      restrict: 'A',
+      templateUrl: 'app/charts/cpu-flame-graph.html',
+      link: link
+    };
+  }
+
+  angular
+    .module('app.directives')
+    .directive('cpuFlameGraph', cpuFlameGraph);
 
 })();

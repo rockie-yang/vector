@@ -15,17 +15,17 @@
  *     limitations under the License.
  *
  */
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    angular
-        .module('vector.config')
-        .constant('vectorConfig', {
-            'port': 44323,  // PMWEBD port
-            'hostspec': 'localhost', // Default PMCD hostspec
-            'interval': 2,  // Default update interval in seconds
-            'window': 2,    // Default graph time window in minutes
-            'enableCpuFlameGraph': false,
-            'enableDiskLatencyHeatMap': false
-        });
+  angular
+    .module('vector.config')
+    .constant('vectorConfig', {
+      'port': 44323, // PMWEBD port
+      'hostspec': 'localhost', // Default PMCD hostspec
+      'interval': 2, // Default update interval in seconds
+      'window': 2, // Default graph time window in minutes
+      'enableCpuFlameGraph': true,
+      'enableDiskLatencyHeatMap': true
+    });
 })();

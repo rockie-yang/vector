@@ -56,6 +56,7 @@
             'ui.dashboard',
             'app.controllers',
             'app.datamodels',
+            // 'app.widgets.kvm',
             'app.widgets',
             'app.directives',
             'app.services',
